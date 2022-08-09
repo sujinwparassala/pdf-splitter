@@ -1,0 +1,13 @@
+from PyPDF2 import PdfFileWriter,PdfFileReader
+
+
+my_file = PdfFileReader("mydocument.pdf")
+
+a = PdfFileWriter()
+
+
+for i in range(my_file.numPages):
+    a.addPage(my_file.getPage(i))
+
+    with open("my_document%s.pdf" %i,"wb") as k:
+        a.write(k)
